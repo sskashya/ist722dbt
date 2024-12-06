@@ -1,0 +1,99 @@
+version: 2
+
+sources:
+  - name: conformed
+    database: raw
+    schema: conformed
+
+    tables:
+      - name: DateDimension
+        columns:
+          - name: DateKey
+            tests:
+              - unique 
+  
+  - name: fudgemart_v3
+    database: raw
+    schema: fudgemart_v3
+
+    tables:
+      - name: fm_customers
+        columns:
+          - name: customer_id
+            tests:
+              - unique 
+      
+      - name: fm_creditcards
+        columns:
+          - name: creditcard_id
+            tests:
+              - unique 
+
+      - name: fm_customer_creditcards
+        tests:
+        - dbt_utils.unique_combination_of_columns:
+            combination_of_columns:
+              - customer_id
+              - creditcard_id
+
+      - name: fm_products
+        columns:
+          - name: product_id
+            tests:
+              - unique 
+      
+      - name: fm_customer_product_reviews
+        tests:
+        - dbt_utils.unique_combination_of_columns:
+            combination_of_columns:
+              - customer_id
+              - product_id
+
+      - name: fm_orders
+        columns:
+          - name: order_id
+            tests:
+              - unique 
+
+      - name: fm_order_details
+        tests:
+        - dbt_utils.unique_combination_of_columns:
+            combination_of_columns:
+              - order_id
+              - product_id
+
+      - name: fm_shipvia_lookup
+        columns:
+          - name: ship_via
+            tests:
+              - unique 
+
+      - name: fm_vendors
+        columns:
+          - name: vendor_id
+            tests:
+              - unique 
+
+      - name: fm_jobtitles_lookup
+        columns:
+          - name: jobtitle_id
+            tests:
+              - unique 
+
+      - name: fm_departments_lookup
+        columns:
+          - name: department_id
+            tests:
+              - unique 
+
+      - name: fm_employees
+        columns:
+          - name: employee_id
+            tests:
+              - unique 
+
+      - name: fm_employee_timesheets
+        columns:
+          - name: timesheet_id
+            tests:
+              - unique 
