@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_employeetimesheet
+    description: Employee Timesheet Dimension. One row per timesheet
+    columns:
+      - name: timesheetkey
+        description: the surrogate key of timesheets
+        tests:
+          - not_null
+          - unique 
+
+      - name: timesheet_id
+        description: The business / source key of employee timesheets
+        tests:
+          - not_null 
+          - unique 

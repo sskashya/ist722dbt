@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: dim_jobtitles
+    description: Jobtitle Dimension. One row per job title
+    columns:
+      - name: jobtitlekey
+        description: The surrogate key of jobtitles
+        tests:
+          - not_null
+          - unique
+
+      - name: jobtitle_id
+        description: The business / source key of the job title
+        tests:
+          - not_null
+          - unique
+              
