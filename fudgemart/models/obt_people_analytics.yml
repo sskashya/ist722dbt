@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: obt_people_analytics
+    description: The people analytics fact table combined with all of its outrigger dimension into one bit table. 
+    

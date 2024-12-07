@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_departments
+    description: Department Dimension. One row per department
+    columns:
+      - name: departmentkey
+        description: The surrogate key of departments
+        tests:
+          - not_null
+          - unique
+
+      - name: department_id
+        description: The business / source key of the department
+        tests:
+          - not_null
+          - unique

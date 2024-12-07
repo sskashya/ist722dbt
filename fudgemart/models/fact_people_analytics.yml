@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: fact_people_analytics
+    description: People Analytics fact table. Transaction one row per employee can track their working history
+    columns: 
+      - name: employeekey
+        description: Dimension key for dim_employees
+      - name: timesheetkey
+        description: Dimension key for dim_employeetimesheet
+      - name: departmentkey
+        description: Dimension key for dim_departments
+      - name: jobtitlekey
+        description: Dimension key for dim_jobtitles
+      - name: birthdatekey
+        description: role play birthdate dimension key for dim_date
+      - name: hiredatekey
+        description: role play hiredate dimension key for dim_date
+      - name: termdatekey
+        description: role play termination date dimension key for dim_date
+      - name: annualsalary
+        description: additive fact for an employees hourlyrate * 40 * 52
+      - name: age
+        description: additive fact to get age of employee from current date - birthdate
+      - name: employeetenure
+        description: additive fact to get duration of employment from termdate - hiredate
